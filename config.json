@@ -2,5 +2,7 @@
     "title":"ReadPond的奇幻妙妙屋",
     "subTitle":"记录学习、工作和日常生活，反正比朋友圈好用^_^",
     "avatarUrl":"https://avatars.githubusercontent.com/u/252286375?v=4&size=64",
+    "allHead":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekVercount.js'></script>",
+    "script":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekTOC.js'></script><script src='https://blog.meekdai.com/Gmeek/plugins/lightbox.js'></script>",
     "GMEEK_VERSION":"last"
 }

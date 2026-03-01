@@ -181,7 +181,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <li>漏洞原理：对象自动绑定被许多框架支持，它允许将HTTP请求参数自动的绑定到对象，开发者没有对其进行安全校验则容易导致数据篡改</li>
 <li>漏洞点：常见的所有输入的地方都会出现这个漏洞，特别是金融、用户、缓存等。</li>
 <li>漏洞修复：Spring MVC中可以使用@InitBinder注释，通过WebDataBinder的方法setAllowedFields、setDisallowedFields设置允许或不允许绑定的参数</li>
-</ul></div>
+</ul>
+</div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️转载文章请写原文链接❤️</div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

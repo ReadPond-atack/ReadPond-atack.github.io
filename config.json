@@ -9,8 +9,6 @@
     
     "faviconUrl":"https://github.githubassets.com/favicons/favicon.svg" ,    // 页面 favicon 图标地址，如果和 avatarUrl 一样可以不写
     
-    "startSite":"07/16/2024",    // 网站创建日期，用于在页面底部显示“已运行多少天”
-    
     "onePageListNum":15,    // 首页每页显示的文章数量
     
     
@@ -64,21 +62,18 @@
     // 是否在文章页显示“issue 链接”按钮，1 为显示，0 为不显示
     "showPostSource":1,
     
-
     // RSS 输出的截断方式，默认 sentence 为第一句话，可配置其他特殊符号
     "rssSplit":"sentence",
     
     // 文章页面右下角显示的提示文字
     "bottomText":"转载请注明出处",
     
-
     // Open Graph 协议展示的图片，分享到社交平台时缩略图
     "ogImage":"https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg" ,
     
     // Primer CSS 的 CDN 地址，默认使用南科大镜像
     "primerCSS":"<link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />",
     
-
     // 是否开启评论功能，1 为开启，0 为关闭
     "needComment":1,
 }

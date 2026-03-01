@@ -1,79 +1,19 @@
 {
     "title":"ReadPond的奇幻妙妙屋",
-    "subTitle":"记录学习、工作和日常生活，反正比朋友圈好用^_^",
+    "subTitle":"想到哪写到哪，语无伦次，胡言乱语，逐渐癫狂~~~",
     "avatarUrl":"https://avatars.githubusercontent.com/u/252286375?v=4&size=64",
-    "allHead":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekBSZ.js'></script>",
-    "allHead":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekVercount.js'></script>",
-    "script":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekTOC.js'></script><script src='https://blog.meekdai.com/Gmeek/plugins/lightbox.js'></script>",
-    "displayTitle":"Meekdai",    // 博客头像后面显示的标题文字，如果和 title 一致可以不写
-    
-    "faviconUrl":"https://github.githubassets.com/favicons/favicon.svg" ,    // 页面 favicon 图标地址，如果和 avatarUrl 一样可以不写
-    
-    "onePageListNum":15,    // 首页每页显示的文章数量
-    
-    
-    "singlePage":["about"],    // 自定义独立页面，例如 "about"、"link" 等
-
-    // 定义 singlePage 按钮对应的 SVG 图标（16px），about / link 有内置图标，可以不定义
-    "iconList":{"music":"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Z"}, 
-    
-    "exlink":{"music":"https://music.meekdai.com"} ,
-    // 自定义首页右上角圆形按钮指向的外部链接，图标在 iconList 中定义
-    
-    "commentLabelColor":"#006b75", // 评论数量标签的颜色
-    
-    "yearColorList":["#bc4c00", "#0969da", "#1f883d", "#A333D0"],    // 不同年份标签的颜色列表
-    
-    "i18n":"CN",    // 博客语言，支持 EN / CN / RU 等
-
-    // 时区设置，例如中国为 UTC+8
-    "UTC":8,
-    
-    // 主题模式，默认 manual（跟随系统或用户手动切换），可选 fix
-    "themeMode":"manual",
-    
-    // 亮色主题名称，当 themeMode 为 manual 或 fix 时使用
-    "dayTheme":"light",
-
-    // 暗色主题名称，当 themeMode 为 manual 或 fix 时使用
+    "faviconUrl":"https://avatars.githubusercontent.com/u/252286375?v=4&size=64",
+    "singlePage":["link","about"],
+    "startSite":"02/16/2024",
+    "onePageListNum":15,
+    "commentLabelColor":"#006b75",
+    "yearColorList":["#bc4c00", "#0969da", "#1f883d", "#A333D0"],
+    "i18n":"CN",
     "nightTheme":"dark_colorblind",
-
-    // 文章链接生成模式，支持 pinyin / issue / ru_translit
-    "urlMode":"pinyin",
-    
-    // 自定义文章页 CSS，可在全局或单篇文章中注入
-    "style":"",
-    
-    // 自定义文章页 JavaScript，可在全局或单篇文章中注入
-    "script":"",
-    
-    // 自定义文章页 <head> 内容，例如额外的 meta / link
-    "head":"",
-    
-    // 自定义所有页面 <head> 内容（包括首页和文章页）
-    "allHead":"",
-
-    // 自定义首页 CSS
-    "indexStyle":"",
-
-    // 自定义首页 JavaScript
-    "indexScript":"",
-
-    // 是否在文章页显示“issue 链接”按钮，1 为显示，0 为不显示
-    "showPostSource":1,
-    
-    // RSS 输出的截断方式，默认 sentence 为第一句话，可配置其他特殊符号
-    "rssSplit":"sentence",
-    
-    // 文章页面右下角显示的提示文字
-    "bottomText":"转载请注明出处",
-    
-    // Open Graph 协议展示的图片，分享到社交平台时缩略图
-    "ogImage":"https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg" ,
-    
-    // Primer CSS 的 CDN 地址，默认使用南科大镜像
+    "bottomText":"❤️转载文章请写原文链接❤️",
+    "iconList":{"music":"M12.7 0.9L7.3 0.9C6 0.9 4.9 2 4.9 3.3L4.9 10.1C4.5 9.9 4.1 9.8 3.6 9.8C2.1 9.8 0.9 11 0.9 12.4C0.9 13.9 2.1 15.1 3.6 15.1C5 15.1 6.2 13.9 6.2 12.4L6.2 3.3C6.2 2.7 6.7 2.2 7.3 2.2L12.7 2.2C13.3 2.2 13.8 2.7 13.8 3.3L13.8 7.5C13.4 7.3 12.9 7.1 12.4 7.1C11 7.1 9.8 8.3 9.8 9.8C9.8 11.2 11 12.4 12.4 12.4C13.9 12.4 15.1 11.2 15.1 9.8L15.1 3.3C15.1 2 14 0.9 12.7 0.9ZM3.6 13.8C2.8 13.8 2.2 13.2 2.2 12.4C2.2 11.7 2.8 11.1 3.6 11.1C4.3 11.1 4.9 11.7 4.9 12.4C4.9 13.2 4.3 13.8 3.6 13.8ZM12.4 11.1C11.7 11.1 11.1 10.5 11.1 9.8C11.1 9 11.7 8.4 12.4 8.4C13.2 8.4 13.8 9 13.8 9.8C13.8 10.5 13.2 11.1 12.4 11.1ZM12.4 11.1"},
+    "exlink":{"music":"https://music.meekdai.com"},
     "primerCSS":"<link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />",
-    
-    // 是否开启评论功能，1 为开启，0 为关闭
-    "needComment":1,
+    "allHead":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekVercount.js'></script>",
+    "GMEEK_VERSION":"main"
 }

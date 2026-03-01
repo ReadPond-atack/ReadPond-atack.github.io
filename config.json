@@ -5,5 +5,80 @@
     "allHead":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekBSZ.js'></script>",
     "allHead":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekVercount.js'></script>",
     "script":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekTOC.js'></script><script src='https://blog.meekdai.com/Gmeek/plugins/lightbox.js'></script>",
-    "GMEEK_VERSION":"last"
+    "displayTitle":"Meekdai",    // 博客头像后面显示的标题文字，如果和 title 一致可以不写
+    
+    "faviconUrl":"https://github.githubassets.com/favicons/favicon.svg" ,    // 页面 favicon 图标地址，如果和 avatarUrl 一样可以不写
+    
+    "startSite":"07/16/2024",    // 网站创建日期，用于在页面底部显示“已运行多少天”
+    
+    "onePageListNum":15,    // 首页每页显示的文章数量
+    
+    
+    "singlePage":["about"],    // 自定义独立页面，例如 "about"、"link" 等
+
+    // 定义 singlePage 按钮对应的 SVG 图标（16px），about / link 有内置图标，可以不定义
+    "iconList":{"music":"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Z"}, 
+    
+    "exlink":{"music":"https://music.meekdai.com"} ,
+    // 自定义首页右上角圆形按钮指向的外部链接，图标在 iconList 中定义
+    
+    "commentLabelColor":"#006b75", // 评论数量标签的颜色
+    
+    "yearColorList":["#bc4c00", "#0969da", "#1f883d", "#A333D0"],    // 不同年份标签的颜色列表
+    
+    "i18n":"CN",    // 博客语言，支持 EN / CN / RU 等
+
+    // 时区设置，例如中国为 UTC+8
+    "UTC":8,
+    
+    // 主题模式，默认 manual（跟随系统或用户手动切换），可选 fix
+    "themeMode":"manual",
+    
+    // 亮色主题名称，当 themeMode 为 manual 或 fix 时使用
+    "dayTheme":"light",
+
+    // 暗色主题名称，当 themeMode 为 manual 或 fix 时使用
+    "nightTheme":"dark_colorblind",
+
+    // 文章链接生成模式，支持 pinyin / issue / ru_translit
+    "urlMode":"pinyin",
+    
+    // 自定义文章页 CSS，可在全局或单篇文章中注入
+    "style":"",
+    
+    // 自定义文章页 JavaScript，可在全局或单篇文章中注入
+    "script":"",
+    
+    // 自定义文章页 <head> 内容，例如额外的 meta / link
+    "head":"",
+    
+    // 自定义所有页面 <head> 内容（包括首页和文章页）
+    "allHead":"",
+
+    // 自定义首页 CSS
+    "indexStyle":"",
+
+    // 自定义首页 JavaScript
+    "indexScript":"",
+
+    // 是否在文章页显示“issue 链接”按钮，1 为显示，0 为不显示
+    "showPostSource":1,
+    
+
+    // RSS 输出的截断方式，默认 sentence 为第一句话，可配置其他特殊符号
+    "rssSplit":"sentence",
+    
+    // 文章页面右下角显示的提示文字
+    "bottomText":"转载请注明出处",
+    
+
+    // Open Graph 协议展示的图片，分享到社交平台时缩略图
+    "ogImage":"https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg" ,
+    
+    // Primer CSS 的 CDN 地址，默认使用南科大镜像
+    "primerCSS":"<link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />",
+    
+
+    // 是否开启评论功能，1 为开启，0 为关闭
+    "needComment":1,
 }

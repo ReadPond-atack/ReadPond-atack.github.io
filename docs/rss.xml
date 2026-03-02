@@ -1,5 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>ReadPond</title><link>https://ReadPond-atack.github.io</link><description>言而欲止，止又欲言，胡言乱语，语无伦次，信口雌黄，逐渐癫狂~~~</description><copyright>ReadPond</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/252286375?v=4&amp;size=64</url><title>avatar</title><link>https://ReadPond-atack.github.io</link></image><lastBuildDate>Mon, 02 Mar 2026 09:59:43 +0000</lastBuildDate><managingEditor>ReadPond</managingEditor><ttl>60</ttl><webMaster>ReadPond</webMaster><item><title>Linux应急响应时相关命令</title><link>https://ReadPond-atack.github.io/post/Linux-ying-ji-xiang-ying-shi-xiang-guan-ming-ling.html</link><description>### 查看用户
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>ReadPond</title><link>https://ReadPond-atack.github.io</link><description>言而欲止，止又欲言，胡言乱语，语无伦次，信口雌黄，逐渐癫狂~~~</description><copyright>ReadPond</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/252286375?v=4&amp;size=64</url><title>avatar</title><link>https://ReadPond-atack.github.io</link></image><lastBuildDate>Mon, 02 Mar 2026 10:09:05 +0000</lastBuildDate><managingEditor>ReadPond</managingEditor><ttl>60</ttl><webMaster>ReadPond</webMaster><item><title>Rust学习记录(一)</title><link>https://ReadPond-atack.github.io/post/Rust-xue-xi-ji-lu-%28-yi-%29.html</link><description># Rust基础部分的语法问题记录
+
+### 1、`use rand::Rng`  
+- 使用`use` 对相关库进行引入  
+- `'::'`说明：模块::类型/函数/特质(A::B 就是“在 A 里面找 B”)  
+  
+### 2、关于`loop{}`是否可以理解为`while(true){}`  
+可以，`loop` 是Rust中的无限循环关键字，只要不遇到 break 或程序终止，就会一直执行循环体  
+  
+### 3、在代码中let mut guess中一定要将guess变量设为mut吗？  
+是的，因为`read_line(&amp;mut guess)`方法需要一个可变引用来修改字符串的内容，所以在创建`guess`时必须使用`mut关键字`将其声明为可变变量，如果`guess`是不可变的，就无法调用需要可变引用的方法。</description><guid isPermaLink="true">https://ReadPond-atack.github.io/post/Rust-xue-xi-ji-lu-%28-yi-%29.html</guid><pubDate>Mon, 02 Mar 2026 10:08:37 +0000</pubDate></item><item><title>Linux应急响应时相关命令</title><link>https://ReadPond-atack.github.io/post/Linux-ying-ji-xiang-ying-shi-xiang-guan-ming-ling.html</link><description>### 查看用户
 ```Plain Text
 1. 查看用户信息文件
 cat /etc/passwd

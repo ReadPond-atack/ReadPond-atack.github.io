@@ -1,5 +1,167 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>ReadPond</title><link>https://ReadPond-atack.github.io</link><description>言而欲止，止又欲言，胡言乱语，语无伦次，信口雌黄，逐渐癫狂~~~</description><copyright>ReadPond</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/252286375?v=4&amp;size=64</url><title>avatar</title><link>https://ReadPond-atack.github.io</link></image><lastBuildDate>Mon, 02 Mar 2026 10:36:50 +0000</lastBuildDate><managingEditor>ReadPond</managingEditor><ttl>60</ttl><webMaster>ReadPond</webMaster><item><title>Rust学习记录(二)</title><link>https://ReadPond-atack.github.io/post/Rust-xue-xi-ji-lu-%28-er-%29.html</link><description>Rust基础部分的问题记录
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>ReadPond</title><link>https://ReadPond-atack.github.io</link><description>言而欲止，止又欲言，胡言乱语，语无伦次，信口雌黄，逐渐癫狂~~~</description><copyright>ReadPond</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/252286375?v=4&amp;size=64</url><title>avatar</title><link>https://ReadPond-atack.github.io</link></image><lastBuildDate>Mon, 02 Mar 2026 10:49:49 +0000</lastBuildDate><managingEditor>ReadPond</managingEditor><ttl>60</ttl><webMaster>ReadPond</webMaster><item><title>Rust基础部分练习</title><link>https://ReadPond-atack.github.io/post/Rust-ji-chu-bu-fen-lian-xi.html</link><description>实验内容：使用Rust语言，做一个学生管理系统的Demo
+
+实验功能：
+&amp;emsp;1. 设置欢迎界面
+&amp;emsp;2. 要求需要对用户输入进行检查
+&amp;emsp;3. 功能模块划分为：
+&amp;emsp;&amp;emsp;a. 第一选项为显示所有学生
+&amp;emsp;&amp;emsp;b. 第二选项为增加学生
+&amp;emsp;&amp;emsp;&amp;emsp;- 内容：姓名、年龄、班级
+&amp;emsp;&amp;emsp;c. 第三选项为删除学生
+&amp;emsp;&amp;emsp;&amp;emsp;- 先显示全部学生
+&amp;emsp;&amp;emsp;&amp;emsp;- 通过指定序号进行删除
+&amp;emsp;&amp;emsp;d. 第四选项为查找指定学生
+&amp;emsp;&amp;emsp;&amp;emsp;- 根据姓名查找学生，显示匹配的学生信息
+&amp;emsp;&amp;emsp;e. 第五选项为退出系统
+
+备注：需要对代码进行添加注释
+
+#### 主界面
+```rust
+let mut students: Vec&lt;(String, u8, String)&gt; = Vec::new();  
+  
+// loop 是一个无限循环，会一直执行直到遇到 break 语句  
+// 这是程序的主循环，用于持续显示菜单和处理用户操作  
+loop {  
+    println!('***学 生 管 理 系 统***');  
+    println!('1.显示所有学生');  
+    println!('2.增加学生');  
+    println!('3.删除学生');  
+    println!('4.查找指定学生');  
+    println!('5.退出');  
+    println!('==========================');  
+    println!('请选择操作 (1-5): ');  
+  
+    // 创建一个空的字符串变量，用于存储用户的输入  
+    // String::new() 创建一个新的空字符串  
+    let mut choice = String::new();  
+      
+    // std::io::stdin() 获取标准输入（键盘输入）  
+    // .read_line(&amp;mut choice) 读取一行输入并存储到 choice 变量中  
+    // &amp;mut choice 表示传递 choice 的可变引用，允许函数修改它  
+    // .expect('输入参数有误，请重新输入') 如果读取失败，显示错误信息并终止程序  
+    std::io::stdin()  
+        .read_line(&amp;mut choice)  
+        .expect('输入参数有误，请重新输入');  
+  
+    // ==================== 输入验证部分 ====================    
+    // choice.trim() 去除字符串两端的空白字符（包括换行符）  
+    // .parse() 尝试将字符串解析为数字  
+    // match 是 Rust 的模式匹配，类似于其他语言的 switch-case    
+    // Ok(num) 表示解析成功，num 是解析出的数字  
+    // Err(_) 表示解析失败，_ 表示忽略错误的具体信息  
+    let choice: u32 = match choice.trim().parse() {  
+        Ok(num) =&gt; num,  // 解析成功，使用解析出的数字  
+        Err(_) =&gt; {  
+            println!('waring: 请输入数字！');  
+            continue;  // 跳过本次循环的剩余部分，直接开始下一次循环  
+        }  
+    };  
+  
+    // ==================== 根据用户选择执行操作 ====================    
+    if choice == 1 {  
+        // 调用显示所有学生的函数  
+        // &amp;mut students 传递 students 的可变引用  
+        // 虽然显示函数不需要修改数据，但为了与其他函数保持一致性  
+        show_all_students(&amp;mut students);  
+    } else if choice == 2 {  
+        // 调用添加学生的函数  
+        add_student(&amp;mut students);  
+    } else if choice == 3 {  
+        // 调用删除学生的函数  
+        delete_student(&amp;mut students);  
+    } else if choice == 4 {  
+        // 调用查找学生的函数  
+        find_student(&amp;mut students);  
+    } else if choice == 5 {  
+        // 用户选择退出  
+        println!('感谢使用学生管理系统，再见！');  
+        break;  // break 语句跳出循环，结束程序  
+    } else {  
+        // 用户输入了无效的选项  
+        println!('无效的选择，请重新输入！');  
+    }  
+    // 循环结束，继续下一次迭代，重新显示菜单  
+}
+```
+
+#### 添加学生功能
+```rust
+fn add_student(students: &amp;mut Vec&lt;(String, u8, String)&gt;) {  
+    // 打印功能标题，\n 表示换行  
+    println!('\n---添加学生---');  
+  
+    // ==================== 输入学生姓名 ====================    
+      
+    // 创建一个空字符串用于存储姓名输入  
+    let mut name = String::new();  
+      
+    // 读取用户输入的一行文本到 name 变量中  
+    std::io::stdin()  
+        .read_line(&amp;mut name)  
+        .expect('无法读取');  
+      
+    // trim() 去除字符串两端的空白字符（包括用户按回车产生的换行符）  
+    // to_string() 将字符串切片转换为 String 类型  
+    // 这样处理后，name 就是一个干净的字符串，没有多余的空白  
+    let name = name.trim().to_string();  
+  
+    // ==================== 输入学生年龄 ====================    
+      
+    // 创建一个空字符串用于存储年龄输入  
+    // 注意：用户输入的是文本，需要转换为数字  
+    let mut age_str = String::new();  
+      
+    // 读取用户输入  
+    std::io::stdin()  
+        .read_line(&amp;mut age_str)  
+        .expect('无法读取输入');  
+      
+    // 尝试将字符串转换为 u8 类型的数字（0-255）  
+    // match 进行模式匹配，判断转换是否成功  
+    let age: u8 = match age_str.trim().parse() {  
+        Ok(num) =&gt; num,  // 转换成功，使用转换后的数字  
+        Err(_) =&gt; {  
+            // 转换失败，说明用户输入的不是数字  
+            println!('年龄必须为数字！添加失败！！！');  
+            return;  // return 提前退出函数，不执行后面的代码  
+        }  
+    };  
+  
+    // ==================== 输入学生班级 ====================    
+    // 创建一个空字符串用于存储班级输入  
+    let mut class_name = String::new();  
+      
+    // 读取用户输入  
+    std::io::stdin()  
+        .read_line(&amp;mut class_name)  
+        .expect('无法读取');  
+      
+    // 去除空白字符并转换为 String 类型  
+    let class_name = class_name.trim().to_string();  
+  
+    // ==================== 将学生信息添加到列表 ====================    
+    // students.push() 向动态数组的末尾添加一个元素  
+    // (name, age, class_name) 创建一个元组，包含三个数据  
+    // 元组的顺序对应：(姓名: String, 年龄: u8, 班级: String)  
+    students.push((name, age, class_name));  
+      
+    // 函数结束，学生信息已成功添加到列表中  
+}
+
+```
+
+#### 删除学生
+```rust
+fn delete_student(students: &amp;mut Vec&lt;(String, u8, String)&gt;) {  
+    println!('\n--- 删除学生 ---');  
+  
+    // ==================== 检查列表是否为空 ====================    
+    
+    // students.is_empty() 检查动态数组是否为空  
+    if students.is_empty() {  
+        println!('暂无学生数据。</description><guid isPermaLink="true">https://ReadPond-atack.github.io/post/Rust-ji-chu-bu-fen-lian-xi.html</guid><pubDate>Mon, 02 Mar 2026 10:49:24 +0000</pubDate></item><item><title>Rust学习记录(二)</title><link>https://ReadPond-atack.github.io/post/Rust-xue-xi-ji-lu-%28-er-%29.html</link><description>Rust基础部分的问题记录
 
 #### 1、变量和可变性
 ```rust

@@ -1,5 +1,37 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>ReadPond</title><link>https://ReadPond-atack.github.io</link><description>言而欲止，止又欲言，胡言乱语，语无伦次，信口雌黄，逐渐癫狂~~~</description><copyright>ReadPond</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/252286375?v=4&amp;size=64</url><title>avatar</title><link>https://ReadPond-atack.github.io</link></image><lastBuildDate>Mon, 02 Mar 2026 10:09:05 +0000</lastBuildDate><managingEditor>ReadPond</managingEditor><ttl>60</ttl><webMaster>ReadPond</webMaster><item><title>Rust学习记录(一)</title><link>https://ReadPond-atack.github.io/post/Rust-xue-xi-ji-lu-%28-yi-%29.html</link><description># Rust基础部分的语法问题记录
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>ReadPond</title><link>https://ReadPond-atack.github.io</link><description>言而欲止，止又欲言，胡言乱语，语无伦次，信口雌黄，逐渐癫狂~~~</description><copyright>ReadPond</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/252286375?v=4&amp;size=64</url><title>avatar</title><link>https://ReadPond-atack.github.io</link></image><lastBuildDate>Mon, 02 Mar 2026 10:36:50 +0000</lastBuildDate><managingEditor>ReadPond</managingEditor><ttl>60</ttl><webMaster>ReadPond</webMaster><item><title>Rust学习记录(二)</title><link>https://ReadPond-atack.github.io/post/Rust-xue-xi-ji-lu-%28-er-%29.html</link><description>Rust基础部分的问题记录
+
+#### 1、变量和可变性
+```rust
+fn main() {  
+    let x: u8 = 5;  
+    // println!('第一种写法：The value of x is: {}', x);  
+    println!('第二种写法：The value of x is: {x}');  
+    x = 6;  
+    println!('The value of x is: {x}');  
+}
+```
+上述代码会报错：
+```powershell
+error[E0384]: cannot assign twice to immutable variable `x`                                                                                
+ --&gt; src\main.rs:6:5
+  |
+2 |     let x: u8 = 5;
+  |         - first assignment to `x`
+...
+6 |     x = 6;
+  |     ^^^^^ cannot assign twice to immutable variable
+  |
+help: consider making this binding mutable
+  |
+2 |     let mut x: u8 = 5;
+  |         +++
+
+For more information about this error, try `rustc --explain E0384`.                                                                                                                                                            
+error: could not compile `variables` (bin 'variables') due to 1 previous error
+```
+报错原因：
+&amp;emsp;&amp;emsp;因为在Rust中，为了确保安全性，变量默认不可变，当变量不可变时，一旦值被绑定一个名称上，用户就不能改变这个值。</description><guid isPermaLink="true">https://ReadPond-atack.github.io/post/Rust-xue-xi-ji-lu-%28-er-%29.html</guid><pubDate>Mon, 02 Mar 2026 10:36:24 +0000</pubDate></item><item><title>Rust学习记录(一)</title><link>https://ReadPond-atack.github.io/post/Rust-xue-xi-ji-lu-%28-yi-%29.html</link><description># Rust基础部分的语法问题记录
 
 ### 1、`use rand::Rng`  
 - 使用`use` 对相关库进行引入  
